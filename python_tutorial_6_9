@@ -1,0 +1,117 @@
+6. Modules:
+    ↳ Module is a file, definitions from a module can be imported into other modules or into the main module
+    ↳ Module is a file containing Python definitions and statements, has suffix .py
+    ↳ A module can contain executable statements as well as function definitions
+    ↳ from ... import ... as ...
+    ↳ We run module like: python module.py
+    ↳ Adding if __name__ == "__main__": at the end of the file, and running file makes it usable as a script
+    ↳ The dir() is used to find out which names and modules are defined. It returns a sorted list of strings.
+    ↳ Packages are a way of construction Pyton module namespace by using "dotted module names".
+    ↳ Example: The module name A.B designates a submodule named B in a package named A
+    ↳ Package -> Collection of modules
+
+7. Input and Output:
+    ↳ Input
+        ↳ Formatted string literals is more advanced way of printing output, using f or F before the opening quotation
+          mark or triple quotation mark. Using {} , we can refer to variables or literal values.
+        ↳ The str.format() more complicated like -> '{:-9} YES votes {:2.2%}'.format(votes, per),
+          read more on this function
+        ↳ Two functions -> str(), repr()
+        ↳ Formatted string literals -> f-strings allows great control over ho the value is formatted.
+        ↳ Many modifiers like : (decimal character wide), !a (applies ascii()), !s (applies str()), !r (applies repr())
+        ↳ We can pass a dictionary into str.format("some_dict") like this: table = {'Sjoerd': 412} ,
+          print('Sjoerd: {0[Sjoerd]:d}'.format(table)), for more see
+          https://docs.python.org/3/library/string.html#formatstrings
+
+    ↳ Output
+        ↳ For reading and writing files we use open(), which returns a file object, used like:
+          f = open('filename', 'mode', encoding=None)
+        ↳ Modes: r -> reading only, W -> writing only !!! caution erase existing file
+          a -> opens file for appending, r+ -> both for reading and writing
+        ↳ Good practise is to use with : with open('filename', encoding="utf-8") as f:
+        ↳ If not using with, file has to be closed manually by using file.close()
+
+        ↳Methods
+            ↳ f.read(size) will read data as string in text mode or bytes object in binary, size is optional,
+              if omitted or negative, the entire content of the file is read and returned. If the end of the
+              file is reached , it will return an empty string ''.
+            ↳ f.readline() reads a single line from the file; a newline character (\n) is left at the end of
+              the string, and is only omitted on the last line of the file if the file doesn’t end in a newline.
+              This makes the return value unambiguous; if f.readline() returns an empty string, the end of the
+              file has been reached, while a blank line is represented by '\n', a string containing only a
+              single newline.
+            ↳ For reading lines from a file, you can loop over the file object. This is memory efficient, fast,
+              and leads to simple code: for line in f: print(line, end='')
+            ↳ If you want to read all the lines of a file in a list you can also use list(f) or f.readlines().
+            ↳ f.write(string) writes the contents of string to the file, returning the number of characters written
+
+    ↳ Json
+        ↳ The JSON format is commonly used by modern applications to allow for data exchange.
+        ↳ Need to import json
+        ↳ Python has ability to work with Json file
+        ↳ JSON files must be encoded in UTF-8. Use encoding="utf-8" when opening JSON file as a text file
+          for both of reading and writing.
+
+8. Errors and Exceptions:
+    ↳ Syntax Errors
+        ↳ Known as parsing errors.
+    ↳ Exceptions
+        ↳ Exceptions are errors detected during execution.
+    ↳ Handling Exceptions
+        ↳ try/ except
+        ↳ try: may have more than one except clause, to specify handlers for different exceptions
+        ↳ except may name multiple exceptions in parenthesized tuple -> except (RuntimeError, TypeError):
+    ↳ Raising Exceptions
+        ↳ Allows programmers to force a specific exception to occur.
+        ↳ raise NameError('HiThere')
+
+9. Classes
+    ↳ Creating a new class creates a new type of object.
+    ↳ Python Scopes and Namespaces
+        ↳ A namespace is a mapping from names to objects.
+        ↳ A scope is a textual region of a Python program where a namespace is directly accessible
+        ↳ Nice: https://docs.python.org/3/tutorial/classes.html#scopes-and-namespaces-example
+    ↳ Class Definition Syntax
+        ↳ class Classname:
+            ...
+        ↳ class Objects:
+            ↳ x = Myclass() -> creates a new instance of the class and assigns this object to the local variable x
+            ↳ __init__() customize instances to a specific state
+            ↳ def __init__(self): self.data = []
+            ↳ init method may have arguments, in that case arguments given to class are passed on to innit
+            ↳ we can define attributes outside the class and then delete them with del
+        ↳ Class and Instance Variables
+            ↳ class Dog:
+                tricks = []        # tricks will be shared by all dogs
+                def __init__(self, name):
+                    self.name = name
+            ↳ class Dog:
+                def __init__(self, name):
+                    self.name = name
+                    self.tricks = [] # each dog will have own tricks
+    ↳ Private Variables
+        ↳ name mangling
+        ↳ Any identifier of the form __spam (at least two leading underscores, at most one trailing underscore)
+          is textually replaced with _classname__spam
+        ↳ Name mangling is helpful for letting subclasses override methods without breaking intraclass method calls.
+    ↳ Iterators
+        ↳ Define an __iter__() method which returns an object with a __next__() method.
+          If the class defines __next__(), then __iter__() can just return self:
+        ↳ class Reverse:
+            """Iterator for looping over a sequence backwards."""
+            def __init__(self, data):
+                self.data = data
+                self.index = len(data)
+
+            def __iter__(self):
+                return self
+
+            def __next__(self):
+                if self.index == 0:
+                    raise StopIteration
+                self.index = self.index - 1
+                return self.data[self.index]
+    ↳ Generators
+        ↳ yield, Generators are a simple and powerful tool for creating iterators.
+        ↳ Each time next() is called on it, the generator resumes where it left off
+          (it remembers all the data values and which statement was last executed)

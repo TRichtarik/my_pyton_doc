@@ -1,0 +1,224 @@
+1. Whetting Your Appetite
+    ↳ Python good
+    ↳ Monty Python’s Flying Circus
+
+2. Using the Python Interpreter
+    ↳ Python source files treated as encoded in UTF-8
+    ↳ To declare other encoding than default one a special comment line should be added as the first line
+      of the file, syntax is as follows: # -*- coding: encoding -*-
+    ↳ One exception to this first line rule is when the source code starts with a UNIX "shebang" line, then
+      the declaration should be added as the second line of the file, for example: #!/usr/bin/env python3
+                                                                                   # -*- coding: cp1252 -*-
+
+3. An Informal Introduction to Python
+    ↳ Numbers:
+        ↳ Operations:
+            ↳ +, -, *
+            ↳ / (division always returns float)
+            ↳ // (floor division)
+            ↳ % (modulo)
+            ↳ ** (powers)
+        ↳ Types:
+             ↳ int, float
+             ↳ Decimal, Fraction, Complex numbers ( j/J suffix )
+    ↳ String:
+        ↳ Can be enclosed in single quotes ('...') or double quotes ("...") with the same result
+        ↳ \ used to escape quotes
+        ↳ print() can be used surprisingly to PRINT string
+        ↳ Using r → print(r'C:\some\name') means "raw" string
+        ↳ String literals can span multiple lines, using triple quotes: """...""" or '''...'''
+        ↳ String can be concatenated with + operator , and repeated with *: 3 * 'la' + 'nd' == 'lalaland'
+        ↳ String can be indexed: word = "Python", word[0] == "P", word[-6] == "P"
+        ↳ String can be sliced: word[0:2] == "Py", word[:2] == "Py", word[-2:] == "on"
+        ↳ Useful table when indexing/slicing +---+---+---+---+---+---+
+                                             | P | y | t | h | o | n |
+                                             +---+---+---+---+---+---+
+                                             0   1   2   3   4   5   6
+                                             -6  -5  -4  -3  -2  -1
+        ↳ Python strings are immutable, that means that they can be indexed but we can not assign a new value
+          to indexed position
+        ↳ We can create new word like this: word = "J" + word[1:], word == "Jython"
+        ↳ The built-in function len() returns the length of a string
+    ↳ Lists:
+        ↳ declared using [] or list()
+        ↳ Is compound data type, can be indexed and sliced
+        ↳ All slice operations return a new shallow copy of the list
+        ↳ Lists also supports operations like concatenation
+        ↳ Lists are mutable, we can assign new value at index i
+        ↳ When adding new item at the end of the list, we use append()
+        ↳ Built-in function len() returns length of list
+
+4. More Control Flow Tools
+    ↳ If statements:
+        if ...:
+            pass
+        elif ...:
+            pass
+        else:
+            pass
+    ↳ For statements:
+        ↳ Is bit special and different from C/Pacal for loops
+        ↳ Python for loop iterates over items of any sequence (a list or a string)
+        ↳ For example: for char in "WORD":, for number in [1,2,3]:
+        ↳ You can iterate over collection: users = {'Hans': 'active'}, for user, status in users.copy().items():
+          or for user, status in users.items():
+    ↳ The range() function:
+        ↳ Used to iterate over a sequence of number
+        ↳ Generates arithmetic progression: list(range(5, 10)) == [5, 6, 7, 8, 9]
+        ↳ In many ways range() behaves as if it is a list, but it is a object, an iterable object
+    ↳ Break, continue and else clauses on Loops:
+        ↳ Break statement breaks out of the innermost enclosing for or while loop
+        ↳ Loop statements may have an else clause, and it is executed when the loop terminates through exhaustion
+          of the iterable (for), or when the condition becomes false (while), but not when terminated by break
+        ↳ Continue continues with the next iteration of the loop
+    ↳ Pass statement
+        ↳ Does nothing, basically a place-holder for a function or a conditional body when working on a new code
+    ↳ Match statement
+        ↳ This is superficially similar to a switch statement in C
+        ↳   match status:
+                case 400:
+                    return "Bad request"
+                case 401 | 403 | 404:
+                    return "I'm a teapot"
+                case _:
+                    return "Something's wrong with the internet"
+    ↳ Defining functions
+        ↳ Using keyword def. It must be followed by the function name and the parenthesized list of formal parameters.
+        ↳ The first statement of the function body can optionally be a string literal,
+          this string literal is the function’s documentation string, or docstring.
+        ↳ The return statement returns with a value from a function. return without an expression argument returns None.
+    ↳ Functions with variable number of arguments
+        ↳ It is also possible to define functions with a variable number of arguments. There are three forms, which can be combined.
+        ↳ // NEED TO LEARN MORE ABOUT THIS, IS 3:21 MY BRAIN CAN NOT TAKE MOR OF THIS
+    ↳ Documentation Strings:
+        ↳ The first line should always be a short, concise summary of the object’s purpose.
+        ↳ If there are more lines in the documentation string, the second line should be blank,
+          visually separating the summary from the rest of the description. The following lines should be one
+          or more paragraphs describing the object’s calling conventions, its side effects, etc.
+    ↳ Coding Style
+        ↳ For Python, PEP 8 has emerged as the style guide that most projects adhere to. Some point extracted:
+            ↳ Use 4-space indentation, and no tabs.
+            ↳ Wrap lines so that they don’t exceed 79 characters.
+            ↳ Use blank lines to separate functions and classes, and larger blocks of code inside functions.
+            ↳ When possible, put comments on a line of their own.
+            ↳ Use docstrings.
+            ↳ Use spaces around operators and after commas, but not directly inside bracketing constructs: a = f(1, 2) + g(3, 4).
+            ↳ Name your classes and functions consistently; the convention is to use UpperCamelCase for classes and
+              lowercase_with_underscores for functions and methods.
+            ↳ Don’t use fancy encodings if your code is meant to be used in international environments.
+              Python’s default, UTF-8, or even plain ASCII work best in any case.
+            ↳ Likewise, don’t use non-ASCII characters in identifiers if there is only the slightest
+              chance people speaking a different language will read or maintain the code.
+
+5. Data Structures
+    ↳ Lists:
+        ↳ Methods of list objects:
+            ↳ list.append(x): Add an item to the end of the list. Equivalent to a[len(a):] = [x]
+            ↳ list.extend(iterable): Extend the list by appending all the items from the iterable.
+            ↳ list.insert(i, x): Insert an item at a given position. The first argument is the index of the
+              element before which to insert, so a.insert(0, x) inserts at the front of the list.
+            ↳ list.remove(x): Remove the first item from the list whose value is equal to x. It raises
+              a ValueError if there is no such item.
+            ↳ list.pop([i]):Remove the item at the given position in the list, and return it.
+              If no index is specified, a.pop() removes and returns the last item in the list.
+              The square brackets around the i in the method signature denote that the parameter is optional.
+            ↳ list.clear(): Remove all items from the list. Equivalent to del a[:].
+            ↳ list.index(x[, start[, end]]): Return zero-based index in the list of the first item whose value
+              is equal to x. Raises a ValueError if there is no such item.The optional arguments start and end are
+              interpreted as in the slice notation and are used to limit the search to a particular subsequence of the list.
+            ↳ list.count(x): Return the number of times x appears in the list.
+            ↳ list.sort(*, key=None, reverse=False): Sort the items of the list in place.
+            ↳ list.reverse(): Reverse the elements of the list in place.
+            ↳ list.copy(): Return a shallow copy of the list. Equivalent to a[:].
+        ↳ Using Lists as Stacks:
+            ↳ using append() and pop() - efficient
+            ↳ last-in, first-out
+        ↳ Using Lists as Queues:
+            ↳ inserts and pops are not efficient for this purpose
+            ↳ first-in, first-out
+            ↳ To implement a queue, use collections.deque
+            ↳ from collections import deque
+            ↳ queue = deque(["Eric", "John", "Michael"])
+            ↳ queue.append("Terry")
+            ↳ queue.popleft()
+        ↳ List Comprehensions:
+            ↳ A list comprehension consists of brackets containing an expression followed by a for clause,
+              then zero or more for or if clauses.
+            ↳ [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+        ↳ Nested List Comprehensions:
+            ↳ The initial expression in a list comprehension can be any arbitrary expression,
+              including another list comprehension.
+    ↳ The del statement:
+        ↳ A way to remove an item from a list given its index instead of its value.
+        ↳ This differs from the pop() method which returns a value. The del statement can also be used to remove
+        ↳ slices from a list or clear the entire list
+    ↳ Tuples and Sequences:
+        ↳ Tuples are immutable, and elements can be accessed via unpacking or indexing.
+        ↳ To create empty tuple we use an empty pair of parentheses: empty = ()
+        ↳ A tuple with one item is constructed by following a value with a comma: singleton = "single",
+    ↳ Sets:
+        ↳ A set is an unordered collection with no duplicate elements.
+        ↳ Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.
+        ↳ To create an empty set we use set() not {} which creates an empty dictionary
+        ↳ We can use in to test membership in set: "orange" in {"apple","banana","orange"}
+        ↳ Operations: - difference, | union, & intersection, ^ symmetric difference
+        ↳ Similarly to list comprehensions, set comprehensions are also supported:
+        ↳ a = {x for x in 'abracadabra' if x not in 'abc'}
+    ↳ Dictionaries:
+        ↳ In another languages called associative memories or associative arrays
+        ↳ Dictionaries are indexed by keys
+        ↳ Empy dictionary created by {}
+        ↳ Performing list(d) on a dictionary returns a list of all the keys used in the dictionary
+        ↳ family = {'Maria': 1963, 'Martina': 1999}
+        ↳ family['Martina'] == 1999
+        ↳ del family['Martina'] == family == {'Maria': 1963}
+        ↳ 'Maria' in family == True
+        ↳ list(family) == ['Maria']
+        ↳ The dict() constructor builds dictionaries directly from sequences of key-value pairs:
+        ↳ dict([('sape', 4139), ('guido', 4127), ('jack', 4098)])
+        ↳ In addition, dict comprehensions can be used to create dictionaries from arbitrary key and value expressions:
+        ↳ {x: x**2 for x in (2, 4, 6)}
+        ↳ When the keys are simple strings, it is sometimes easier to specify pairs using keyword arguments:
+        ↳ dict(sape=4139, guido=4127, jack=4098)
+    ↳ Looping Techniques:
+        ↳ Dictionaries:
+            ↳ When looping through dictionaries, the key and corresponding value can be retrieved at the same time
+              using the items() method.
+            ↳ for name, birth in family.items():
+        ↳ Sequence:
+            ↳ When looping through a sequence, the position index and corresponding value can be retrieved at the
+              same time using the enumerate() function.
+            ↳ names = ["TOM", "MARTINA"], for i, name in enumerate(names):
+            ↳ To loop over two or more sequences at the same time, the entries can be paired with the zip() function
+            ↳ family = ["mother", "brother"], for name, member in zip(names, family):
+            ↳ To loop over a sequence in reverse, first specify the sequence in a forward direction and
+              then call the reversed() function.
+            ↳ for i in reversed(range(1, 10, 2)):
+            ↳ For sorted order use sorted(): for name in sorted(names):
+            ↳ You can loop over set: for name in sorted(set(names)):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
