@@ -65,7 +65,7 @@
         ↳ Allows programmers to force a specific exception to occur.
         ↳ raise NameError('HiThere')
 
-9. Classes
+9. Classes:
     ↳ Creating a new class creates a new type of object.
     ↳ Python Scopes and Namespaces
         ↳ A namespace is a mapping from names to objects.

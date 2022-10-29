@@ -1,1 +1,121 @@
-10. Brief Tour of the Standard Library
+10. Brief Tour of the Standard Library:
+    ↳ Operating system interface
+        ↳ import os
+        ↳ os.getcwd() # return the current working directory
+        ↳ os.chdir('dir_name') # change cwd
+        ↳ Be sure to import os not from os import * because of os.open() shadowing open()
+        ↳ dir(os) -> returns a list of all module functions
+        ↳ help(os) -> manual page
+    ↳ File Wildcards
+        ↳ import glob
+        ↳ The glob module provides a function for making file lists from directory wildcard searches:
+        ↳ glob.glob('*.py') = ['primes.py', 'random.py', 'quote.py']
+    ↳ Command lines arguments
+        ↳ import sys
+        ↳ sys.argv = argv
+        ↳ import argparse
+        ↳ used to process command line arguments
+    ↳ Error Output redirection and Program Termination
+        ↳ import sys
+        ↳ sys.stderr.write('')
+        ↳ sys.exit() to terminate a script
+    ↳ String pattern matching
+        ↳ import re
+        ↳ provides regular expression tools
+        ↳ re.findall, re.sub, "".replace('from', 'to')
+    ↳ Mathematics
+        ↳ import math
+        ↳ provides access to the underlying C library functions for floating point math
+        ↳ math.cos(), math.log(),
+        ↳ import random
+        ↳ random.choice(["",""])
+        ↳ random.sample(), random.random(), random.randrange()
+        ↳ import statistics
+        ↳ calculates basic statistical properties
+        ↳ statistics.mean(data), statistics.median(data), statistics.variance(data)
+    ↳ Internet Access
+        ↳ for retrieving data urllib.requests
+        ↳ stmlib for sending email
+    ↳ Dates and Time
+        ↳ import datetime
+        ↳ handles complex as well as simple ways of manipulating with time and dates
+        ↳ from datetime import date
+        ↳ date.today()
+    ↳ Data Comprehension
+        ↳ import zlib
+        ↳ example of module supporting data archiving and compression
+    ↳ Performance measurements
+        ↳ import timeit
+        ↳ from timeit import Timer
+        ↳ used for measuring performance
+    ↳ Quality control
+        ↳ import doctest
+        ↳ provides a tool for scanning a module and validating testes embedded in programs docstrings
+        ↳ import unitttest
+        ↳ more comprehensive set of tests to be maintaned in separate file
+    ↳ There is more
+        ↳ email , json, csv, sqlite3
+
+11. Brief Tour of the Standard Library 2:
+    ↳ Output Formatting
+        ↳ import reprlib
+        ↳ provides version of repr()
+        ↳ import pprint
+        ↳ offers more sophisticated control over printing both build-in and user defined objects
+        ↳ stands for pretty printer
+        ↳ import textwrap
+        ↳ formats paragraphs of text to fit a given screen width
+        ↳ import locale
+        ↳ locale module accesses a database of culture specific data formats
+    ↳ Templating
+        ↳ from string import Template
+        ↳ The string module includes a versatile Template class with a simplified syntax
+          suitable for editing by end-users.
+    ↳ Working with Binary Data Record Layouts
+        ↳ import struct
+        ↳ The struct module provides pack() and unpack() functions for working with variable length binary record formats.
+    ↳ Multi-threading
+        ↳ import threading
+        ↳ Threading is a technique for decoupling tasks which are not sequentially dependent.
+    ↳ Logging
+        ↳ import logging
+        ↳ The logging module offers a full featured and flexible logging system.
+    ↳ Tools for Working with Lists
+        ↳ import array
+        ↳ provides an array() object that is like list that stores only homogenous data
+        ↳ import collections
+        ↳ collections module provides deque() objects that is like a list with faster appends and pops
+          from the left side but slower lookups in the middle. These objects are well suited for implementing
+          queues and breadth first tree searches.
+        ↳ from heapq
+        ↳ heapq module provides functions for implementing heaps based on regular lists
+    ↳ Decimal Floating Point Arithmetic
+        ↳ from decimal import *
+        ↳ financial applications and other uses which require exact decimal representation,
+        ↳ control over precision,
+        ↳ control over rounding to meet legal or regulatory requirements,
+        ↳ tracking of significant decimal places, or
+        ↳ applications where the user expects the results to match calculations done by hand.
+
+12. Virtual Environments and Packages:
+    ↳ Introduction
+        ↳ Python applications will often use packages and modules that don’t come as part of the standard library.
+    ↳ Creating Virtual Environments
+        ↳ Creation: python3 -m venv tutorial-env
+        ↳ Activation: source tutorial-env/bin/activate
+        ↳ Deactivation: deactivate
+    ↳ Managing Packages with pip
+        ↳ You can install, upgrade, and remove packages using a program called pip.
+        ↳ to install all requirements from requirements.txt use install -r
+
+13. What now ?:
+    ↳ my doc is stored, with all documents
+    ↳ for more python resources
+    ↳ https://docs.python.org/3/tutorial/whatnow.html
+
+14. Interactive Input Editing and History Substitution
+    ↳ Some versions of the Python interpreter support editing of the current input line and history substitution,
+      similar to facilities found in the Korn shell and the GNU Bash shell.
+
+15. Floating Point Arithmetic: Issues and Limitations:
+    ↳
