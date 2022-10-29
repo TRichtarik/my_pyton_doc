@@ -1,2 +1,3 @@
 # my_pyton_doc
-Personal overview of python documentation. From tutorial to documentation.
+Only reason this repository exists, is to push myself to read through python tutorial/documentions.
+Some of the informations that i find usefull will be documented here.
