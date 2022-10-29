@@ -118,4 +118,18 @@
       similar to facilities found in the Korn shell and the GNU Bash shell.
 
 15. Floating Point Arithmetic: Issues and Limitations:
-    ↳
+    ↳ Floating-point numbers are represented in computer hardware as base 2 (binary) fractions.
+    ↳ Stop at any finite number of bits, and you get an approximation.
+    ↳ Just remember, even though the printed result looks like the exact value of 1/10,
+      the actual stored value is the nearest representable binary fraction.
+    ↳ Use decimal module which implements decimal arithmetic suitable for accounting applications and high-precision applications.
+    ↳ Use fractions module which implements arithmetic based on rational numbers.
+    ↳ Use NumPy and many other packages for mathematical and statistical operations.
+
+16. Appendix
+    ↳ When an error occurs, the interpreter prints an error message and a stack trace. In interactive mode,
+      it then returns to the primary prompt; when input came from a file, it exits with a nonzero exit status
+      after printing the stack trace.
+    ↳ When you use Python interactively, it is frequently handy to have some standard commands executed every time
+      the interpreter is started. You can do this by setting an environment variable named PYTHONSTARTUP to the
+      name of a file containing your start-up commands.
